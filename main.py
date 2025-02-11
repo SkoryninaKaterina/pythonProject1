@@ -1,7 +1,7 @@
 # #class Dog
 #
 # #опис класу, шаблон
-from tkinter.font import names
+
 
 
 # class Dog:
@@ -129,40 +129,86 @@ class Student:
 # Додайте метод withdraw для зняття грошей з рахунку
 # Додайте метод info для виведення інформації про баланс
 
-
-class BankAccount:
-    def __init__(self, owner, balance=0):
+#
+# class BankAccount:
+#     def __init__(self, owner, balance=0):
         #Ініціалізація банківського рахунку з власником та початковим балансом
-        self.owner = owner
-        self.balance = balance
+    #     self.owner = owner
+    #     self.balance = balance
+    #
+    # def deposit(self, amount):
+    #     #Поповнення рахунку
+    #     if amount > 0:
+    #         self.balance += amount
+    #         print(f"{amount:.2f} грн зараховано на рахунок {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+    #     else:
+    #         print("Сума поповнення має бути більше 0.")
+    #
+    # def withdraw(self, amount):
+    #     #Зняття грошей з рахунку
+    #     if amount > self.balance:
+    #         print("Недостатньо коштів на рахунку!")
+    #     elif amount <= 0:
+    #         print("Сума зняття має бути більше 0.")
+    #     else:
+    #         self.balance -= amount
+    #         print(f"{amount:.2f} грн знято з рахунку {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+    #
+    # def info(self):
+#         #Виведення інформації про баланс
+#         print(f"Власник рахунку: {self.owner}")
+#         print(f"Баланс: {self.balance:.2f} грн")
+#
+# # Приклад використання:
+# account = BankAccount("Іван", 1000)
+# account.info()       # Виведе інформацію про баланс
+# account.deposit(500) # Поповнення рахунку
+# account.withdraw(300) # Зняття грошей
+# account.withdraw(2000) # Спроба зняти більше, ніж є
+# account.info()       # Перевірка балансу після операцій
 
-    def deposit(self, amount):
-        #Поповнення рахунку
-        if amount > 0:
-            self.balance += amount
-            print(f"{amount:.2f} грн зараховано на рахунок {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+
+
+
+# Завдання 1
+# Створіть клас Cart(кошик клієнта магазину) з атрибутами
+# client(ім’я клієнта) та items(список товарів).
+# Додайте метод який додає новий товар до кошика
+# Додайте метод який видаляє товар з кошика
+# Додайте метод для виведення інформації про кошик
+
+class Cart:
+    def __init__(self, client):
+        self.client = client
+        self.items = []
+
+
+    def add_item(self, item):
+        self.items.append(item)
+        print(f"товар {item} додано до кошика {self.client}")
+
+
+    def remove_item(self, item):
+        if item in self.items:
+            self.items.remove(item)
+            print(f"товар {item} видалено з кошика {self.client}")
         else:
-            print("Сума поповнення має бути більше 0.")
+            print(f"товар {item} не знайдено в кошику")
 
-    def withdraw(self, amount):
-        #Зняття грошей з рахунку
-        if amount > self.balance:
-            print("Недостатньо коштів на рахунку!")
-        elif amount <= 0:
-            print("Сума зняття має бути більше 0.")
+
+    def show_cart(self):
+        print(f"кошик клієнта: {self.client}")
+        if self.items:
+            print("товари в кошику: ")
+            for item in self.items:
+                print(f"  - {item}")
         else:
-            self.balance -= amount
-            print(f"{amount:.2f} грн знято з рахунку {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+            print("кошик порожній")
 
-    def info(self):
-        #Виведення інформації про баланс
-        print(f"Власник рахунку: {self.owner}")
-        print(f"Баланс: {self.balance:.2f} грн")
-
-# Приклад використання:
-account = BankAccount("Іван", 1000)
-account.info()       # Виведе інформацію про баланс
-account.deposit(500) # Поповнення рахунку
-account.withdraw(300) # Зняття грошей
-account.withdraw(2000) # Спроба зняти більше, ніж є
-account.info()       # Перевірка балансу після операцій
+cart = Cart('Mett')
+cart.add_item('notebook')
+cart.add_item('smartphone')
+cart.show_cart()
+cart.remove_item('notebook')
+cart.show_cart()
+cart.remove_item('televisor')
