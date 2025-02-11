@@ -77,11 +77,31 @@ class Student:
         print()
 
 
-student1 = Student('Stiv', 22)
-student2 = Student("Victor", 38)
-student3 = Student("Victoriia", 35)
+# student1 = Student('Stiv', 22)
+# student2 = Student("Victor", 38)
+# student3 = Student("Victoriia", 35)
+#
+# student1.print_info()
+# student2.print_info()
+# student1.print_info()
+# student3.print_info()
 
-student1.print_info()
-student2.print_info()
-student1.print_info()
-student3.print_info()
+
+# Завдання 2
+# Створіть список з 3-ма студентами, дані вводить
+# користувач. Після чого для кожного студента виведіть
+# інформацію про нього за допомогою метода.
+
+students = []
+
+for _ in range(3):
+    name = input('імя ')
+    age = int(input('Вік '))
+
+    student=Student(name, age)
+    students.append(student)
+
+
+for student in students:
+    student.print_info()
+
