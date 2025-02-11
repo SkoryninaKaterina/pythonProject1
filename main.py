@@ -92,16 +92,32 @@ class Student:
 # користувач. Після чого для кожного студента виведіть
 # інформацію про нього за допомогою метода.
 
-students = []
+# students = []
+#
+# for _ in range(3):
+#     name = input('імя ')
+#     age = int(input('Вік '))
+#
+#     student=Student(name, age)
+#     students.append(student)
+#
+#
+# for student in students:
+#     student.print_info()
+#
+#
+#
+# Завдання 3
+# Створіть клас Circle з атрибутом radius. Додайте метод для
+# отримання площі кола
 
-for _ in range(3):
-    name = input('імя ')
-    age = int(input('Вік '))
+import math
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
 
-    student=Student(name, age)
-    students.append(student)
+    def area(self):
+        return math.pi * self.radius ** 2
 
-
-for student in students:
-    student.print_info()
-
+circle = Circle(5)
+print(f" Площа кола з радіусом {circle.radius} дорівнює {circle.area():.2f}")
