@@ -111,13 +111,58 @@ class Student:
 # Створіть клас Circle з атрибутом radius. Додайте метод для
 # отримання площі кола
 
-import math
-class Circle:
-    def __init__(self, radius):
-        self.radius = radius
+# import math
+# class Circle:
+#     def __init__(self, radius):
+#         self.radius = radius
+#
+#     def area(self):
+#         return math.pi * self.radius ** 2
+#
+# circle = Circle(5)
+# print(f" Площа кола з радіусом {circle.radius} дорівнює {circle.area():.2f}")
 
-    def area(self):
-        return math.pi * self.radius ** 2
 
-circle = Circle(5)
-print(f" Площа кола з радіусом {circle.radius} дорівнює {circle.area():.2f}")
+# Завдання 4
+# Створіть клас BankAccount з атрибутами owner та balance.
+# Додайте метод deposit для поповнення рахунку
+# Додайте метод withdraw для зняття грошей з рахунку
+# Додайте метод info для виведення інформації про баланс
+
+
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        #Ініціалізація банківського рахунку з власником та початковим балансом
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        #Поповнення рахунку
+        if amount > 0:
+            self.balance += amount
+            print(f"✅ {amount:.2f} грн зараховано на рахунок {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+        else:
+            print("Сума поповнення має бути більше 0.")
+
+    def withdraw(self, amount):
+        #Зняття грошей з рахунку
+        if amount > self.balance:
+            print("Недостатньо коштів на рахунку!")
+        elif amount <= 0:
+            print("Сума зняття має бути більше 0.")
+        else:
+            self.balance -= amount
+            print(f"✅ {amount:.2f} грн знято з рахунку {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+
+    def info(self):
+        #Виведення інформації про баланс
+        print(f"💳 Власник рахунку: {self.owner}")
+        print(f"💰 Баланс: {self.balance:.2f} грн")
+
+# Приклад використання:
+account = BankAccount("Іван", 1000)
+account.info()       # Виведе інформацію про баланс
+account.deposit(500) # Поповнення рахунку
+account.withdraw(300) # Зняття грошей
+account.withdraw(2000) # Спроба зняти більше, ніж є
+account.info()       # Перевірка балансу після операцій
