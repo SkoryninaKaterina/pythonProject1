@@ -140,7 +140,7 @@ class BankAccount:
         #Поповнення рахунку
         if amount > 0:
             self.balance += amount
-            print(f"✅ {amount:.2f} грн зараховано на рахунок {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+            print(f"{amount:.2f} грн зараховано на рахунок {self.owner}. Новий баланс: {self.balance:.2f} грн.")
         else:
             print("Сума поповнення має бути більше 0.")
 
@@ -152,12 +152,12 @@ class BankAccount:
             print("Сума зняття має бути більше 0.")
         else:
             self.balance -= amount
-            print(f"✅ {amount:.2f} грн знято з рахунку {self.owner}. Новий баланс: {self.balance:.2f} грн.")
+            print(f"{amount:.2f} грн знято з рахунку {self.owner}. Новий баланс: {self.balance:.2f} грн.")
 
     def info(self):
         #Виведення інформації про баланс
-        print(f"💳 Власник рахунку: {self.owner}")
-        print(f"💰 Баланс: {self.balance:.2f} грн")
+        print(f"Власник рахунку: {self.owner}")
+        print(f"Баланс: {self.balance:.2f} грн")
 
 # Приклад використання:
 account = BankAccount("Іван", 1000)
