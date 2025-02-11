@@ -176,39 +176,79 @@ class Student:
 # Додайте метод який додає новий товар до кошика
 # Додайте метод який видаляє товар з кошика
 # Додайте метод для виведення інформації про кошик
+#
+# class Cart:
+#     def __init__(self, client):
+#         self.client = client
+#         self.items = []
+#
+#
+#     def add_item(self, item):
+#         self.items.append(item)
+#         print(f"товар {item} додано до кошика {self.client}")
+#
+#
+#     def remove_item(self, item):
+#         if item in self.items:
+#             self.items.remove(item)
+#             print(f"товар {item} видалено з кошика {self.client}")
+#         else:
+#             print(f"товар {item} не знайдено в кошику")
+#
+#
+#     def show_cart(self):
+#         print(f"кошик клієнта: {self.client}")
+#         if self.items:
+#             print("товари в кошику: ")
+#             for item in self.items:
+#                 print(f"  - {item}")
+#         else:
+#             print("кошик порожній")
+#
+# cart = Cart('Mett')
+# cart.add_item('notebook')
+# cart.add_item('smartphone')
+# cart.show_cart()
+# cart.remove_item('notebook')
+# cart.show_cart()
+# cart.remove_item('televisor')
 
-class Cart:
-    def __init__(self, client):
-        self.client = client
-        self.items = []
+
+# Завдання 2
+# Створіть клас Phone з атрибутами number та battery_level.
+# Додайте метод який зменшує заряд телефона(на скільки
+# зменшити відсотків передається як параметр), якщо він
+# опуститься нижче 20%, вивести повідомлення
+# Додайте метод для виведення інформації про телефон.
+
+class Phone:
+    def __init__(self, number, battery_level=100):
+        self.number = number
+        self.battery_level = battery_level
 
 
-    def add_item(self, item):
-        self.items.append(item)
-        print(f"товар {item} додано до кошика {self.client}")
+    def use_battery(self, persent):
+        if persent < 0:
+            print('заряд батареї не може бути відємним')
+            return
+
+        self.battery_level -= persent
+        if self.battery_level < 0:
+            self.battery_level = 0
+        print(f'використано{persent} % заряду. Поточний рівень:{self.battery_level}%')
 
 
-    def remove_item(self, item):
-        if item in self.items:
-            self.items.remove(item)
-            print(f"товар {item} видалено з кошика {self.client}")
-        else:
-            print(f"товар {item} не знайдено в кошику")
+        if self.battery_level < 20:
+            print("заряд менше 20%! Поставте на зарядку!")
 
 
-    def show_cart(self):
-        print(f"кошик клієнта: {self.client}")
-        if self.items:
-            print("товари в кошику: ")
-            for item in self.items:
-                print(f"  - {item}")
-        else:
-            print("кошик порожній")
+    def show_info(self):
+        print(f"номер телефону: {self.number}")
+        print(f"заряд батареї: {self.battery_level}%")
 
-cart = Cart('Mett')
-cart.add_item('notebook')
-cart.add_item('smartphone')
-cart.show_cart()
-cart.remove_item('notebook')
-cart.show_cart()
-cart.remove_item('televisor')
+phone = Phone("+380991234567")
+phone.show_info()
+phone.use_battery(30)
+phone.use_battery(50)
+phone.use_battery(25)  # Заряд впаде нижче 20%
+phone.show_info()
