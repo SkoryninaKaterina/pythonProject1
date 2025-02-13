@@ -220,35 +220,35 @@ class Student:
 # зменшити відсотків передається як параметр), якщо він
 # опуститься нижче 20%, вивести повідомлення
 # Додайте метод для виведення інформації про телефон.
-
-class Phone:
-    def __init__(self, number, battery_level=100):
-        self.number = number
-        self.battery_level = battery_level
-
-
-    def use_battery(self, persent):
-        if persent < 0:
-            print('заряд батареї не може бути відємним')
-            return
-
-        self.battery_level -= persent
-        if self.battery_level < 0:
-            self.battery_level = 0
-        print(f'використано{persent} % заряду. Поточний рівень:{self.battery_level}%')
-
-
-        if self.battery_level < 20:
-            print("заряд менше 20%! Поставте на зарядку!")
-
-
-    def show_info(self):
-        print(f"номер телефону: {self.number}")
-        print(f"заряд батареї: {self.battery_level}%")
-
-phone = Phone("+380991234567")
-phone.show_info()
-phone.use_battery(30)
-phone.use_battery(50)
-phone.use_battery(25)  # Заряд впаде нижче 20%
-phone.show_info()
+#
+# class Phone:
+#     def __init__(self, number, battery_level=100):
+#         self.number = number
+#         self.battery_level = battery_level
+#
+#
+#     def use_battery(self, persent):
+#         if persent < 0:
+#             print('заряд батареї не може бути відємним')
+#             return
+#
+#         self.battery_level -= persent
+#         if self.battery_level < 0:
+#             self.battery_level = 0
+#         print(f'використано{persent} % заряду. Поточний рівень:{self.battery_level}%')
+#
+#
+#         if self.battery_level < 20:
+#             print("заряд менше 20%! Поставте на зарядку!")
+#
+#
+#     def show_info(self):
+#         print(f"номер телефону: {self.number}")
+#         print(f"заряд батареї: {self.battery_level}%")
+#
+# phone = Phone("+380991234567")
+# phone.show_info()
+# phone.use_battery(30)
+# phone.use_battery(50)
+# phone.use_battery(25)  # Заряд впаде нижче 20%
+# phone.show_info()
