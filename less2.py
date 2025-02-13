@@ -50,6 +50,15 @@ class Project:
         self.tasks.append(task)
 
 
+    def divide_task(self, task, subtasks):
+        if task not in self.tasks:
+            print('немає такої задачі')
+            return
+
+        self.tasks.remove(task)
+
+        self.tasks += subtasks
+
 
 project = Project(name='Ігрушка',
                   budget=10_000,
@@ -58,7 +67,19 @@ project = Project(name='Ігрушка',
 
 project.display_info()
 
+project.add_task('Вибрати ПЗ для гри')
 
+project.display_info()
+
+project.divide_task('організувати бенкет',
+                    ['витратити бюджет'])
+
+project.divide_task('придумати загальну ідею',
+                    ['обрати між 2Д та 3Д'
+                     "придумати сюжет",
+                     "пропиати персонажів"])
+
+project.display_info()
 
 
 
