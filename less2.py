@@ -164,6 +164,33 @@ class Phone:
     def turn_off(self):
         self.is_on = False
 
+    def download_app(self, app_name, app_memory):
+        free_memory = self.max_memory - self.used_memory
+
+        if free_memory >= app_memory:
+            self.apps[app_name] = app_memory
+            self.used_memory += app_memory
+        else:
+            print('недостатньо памяті')
+
+    def update_app(self, app_name, new_memory):
+        if app_name not in self.apps:
+            print('немає такого додатку!')
+            return
+
+        free_memory = self.max_memory - self.used_memory
+        app_memory = self.apps[app_name]
+        needed_memory = new_memory - app_memory
+
+        if free_memory >= needed_memory:
+            self.apps[app_name] = new_memory
+            self.used_memory += needed_memory
+
+        else:
+            print('недостатньо памяті')
+
+
+
 phone = Phone(128,
               {'Google': 30,
               'Ytube': 20,
@@ -172,5 +199,13 @@ phone = Phone(128,
 phone.display_info()
 
 phone.delete_app('Ytube')
+
+phone.display_info()
+
+phone.download_app('Angry_birds',20)
+
+phone.display_info()
+
+phone.update_app('angry_birds', 30)
 
 phone.display_info()
